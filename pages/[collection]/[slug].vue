@@ -7,7 +7,7 @@ const {data} = await useFetch('/api/' + route.params.collection + '/' + route.pa
 
 <template>
   <div class="prose">
-    <h1>{{ data.data.title }}</h1>
-    <div v-html="marked(data.body)"/>
+    <h1>{{ data.data.title || data.data.name }}</h1>
+    <div v-if="data.body" v-html="marked(data.body)"/>
   </div>
 </template>

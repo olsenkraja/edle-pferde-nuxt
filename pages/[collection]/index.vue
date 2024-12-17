@@ -8,7 +8,7 @@ const {data: collection} = await useFetch('/api/' + route.params.collection)
   <ul v-for="item in collection">
     <li>
       <NuxtLink :to="'/'+item.collection+'/' + item.slug">
-        {{ item.data.title }}
+        {{ item.data.title || item.data.name }}
       </NuxtLink>
     </li>
   </ul>
