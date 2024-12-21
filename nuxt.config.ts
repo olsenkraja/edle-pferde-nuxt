@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  runtimeConfig: {
+    public: {
+      cmsUrl: process.env.CMS_URL
+    }
+  },
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -17,7 +17,7 @@
           <!-- Logo - centered for both mobile and desktop -->
           <div class="absolute left-1/2 transform -translate-x-1/2">
             <a href="/" class="flex items-center">
-              <span class="text-xl font-bold">Your Logo</span>
+              <img src="/logo.webp" alt="logo" class="h-24 mt-12 lg:h-32 lg:mt-16">
             </a>
           </div>
 
@@ -50,8 +50,7 @@
 
     <!-- Main content -->
     <main class="container mx-auto p-4 mt-8">
-      <h1 class="text-2xl font-bold mb-4">Welcome to our website</h1>
-      <p>This is the main content area.</p>
+      <slot/>
     </main>
 
     <!-- Mobile sidebar -->
@@ -101,9 +100,12 @@ const isSidebarOpen = ref(false)
 
 const navItems = [
   {name: 'Home', href: '/'},
-  {name: 'About', href: '/about'},
-  {name: 'Services', href: '/services'},
-  {name: 'Contact', href: '/contact'},
+  {name: 'Blog', href: '/blog'},
+  {name: 'Pferde', href: '/pferde'},
+  {name: 'Galerie', href: '/galerie'},
+  {name: 'Über uns', href: '/über-uns'},
+  {name: 'Facebook', href: 'https://facebook.com/gestuetpichl'},
+  {name: 'Instagram', href: 'https://instagram.com/trakehner_gestuet_pichl'},
 ]
 
 const leftNavItems = computed(() => navItems.slice(0, Math.ceil(navItems.length / 2)))

@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@nuxt/image": "1.8.1",
     "@nuxtjs/tailwindcss": "6.12.2",
-    "marked": "^15.0.3",
+    "marked": "^15.0.4",
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
@@ -22,6 +23,6 @@
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16"
+    "tailwindcss": "^3.4.17"
   }
 }

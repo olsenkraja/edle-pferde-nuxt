@@ -1,5 +1,6 @@
 export default defineEventHandler(async (event) => {
     const { collection } = event.context.params
+    const config = useRuntimeConfig(event)
 
-    return await $fetch(process.env.VITE_API_PATH + collection + '.json');
+    return await $fetch(config.public.cmsUrl + '/api/' + collection + '.json');
 });
