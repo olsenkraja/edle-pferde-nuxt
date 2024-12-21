@@ -9,7 +9,7 @@ const relativeTimeAgo = formatRelativeDateTime(post.value.data.date)
 const formattedDateTime = formatDateTime(post.value.data.date)
 
 const horses = []
-for (let i = 0; i < post.value.data.horses.length; i++) {
+for (let i = 0; i < post.value.data.horses?.length; i++) {
   let {data: horse} = await useFetch('/api/horses/' + post.value.data.horses[i])
   horses.push({
     slug: post.value.data.horses[i],
