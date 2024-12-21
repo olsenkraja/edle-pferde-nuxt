@@ -13,10 +13,10 @@ console.log(config)
                class="size-32 aspect-square shadow-lg rounded-lg object-cover">
           <div class="flex flex-col justify-between">
             <div class="space-y-2">
-              <h1 class="font-bold leading-none">{{ post.data.title }}</h1>
-              <div class="text-sm line-clamp-3 text-gray-600">{{ post.body }}</div>
+              <h1 class="font-bold leading-none line-clamp-3">{{ post.data.title }}</h1>
+              <div class="text-sm line-clamp-2 sm:line-clamp-3 text-gray-600">{{ post.body }}</div>
             </div>
-            <div class="text-xs line-clamp-3">{{ post.data.date }}</div>
+            <span class="text-xs">{{ formatDate(post.data.date) }}</span>
           </div>
         </div>
       </NuxtLink>
