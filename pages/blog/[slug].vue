@@ -3,15 +3,20 @@ import {marked} from 'marked'
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const {data} = await useFetch('/api/posts/' + route.params.slug)
+const {data: post} = await useFetch('/api/posts/' + route.params.slug)
+
+const relativeTimeAgo = formatRelativeDateTime(post.value.data.date)
+const formattedDateTime = formatDateTime(post.value.data.date)
 </script>
 
 <template>
-  <div class="prose lg:prose-lg xl:prose-xl">
-    <img :src="config.public.cmsUrl + '/' + data.data.cover_image" class="w-full max-h-96 object-cover"/>
-    <h1>{{ data.data.title || data.data.name }}</h1>
-    <div v-if="data.body" v-html="marked(data.body)"/>
+  <div class="space-y-16 my-16">
+    <img :src="config.public.cmsUrl + '/' + post.data.cover_image" class="w-full max-h-[720px] object-cover" alt=""/>
+    <div class="prose lg:prose-lg xl:prose-xl">
+      <h1>{{ post.data.title || post.data.name }}</h1>
+      <span class="text-xs" v-if="relativeTimeAgo !== formattedDateTime">{{ relativeTimeAgo }}</span>
+      <span class="text-xs">{{ formattedDateTime }}</span>
+      <article v-html="marked(post.body)"/>
+    </div>
   </div>
-  <pre>{{ data }}</pre>
-  aa
 </template>
