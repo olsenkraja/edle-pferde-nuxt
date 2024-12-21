@@ -14,8 +14,10 @@ const formattedDateTime = formatDateTime(post.value.data.date)
     <img :src="config.public.cmsUrl + '/' + post.data.cover_image" class="w-full max-h-[720px] object-cover" alt=""/>
     <div class="prose lg:prose-lg xl:prose-xl">
       <h1>{{ post.data.title || post.data.name }}</h1>
-      <span class="text-xs" v-if="relativeTimeAgo !== formattedDateTime">{{ relativeTimeAgo }}</span>
-      <span class="text-xs">{{ formattedDateTime }}</span>
+      <div>
+        <span class="text-xs">{{ formattedDateTime }}</span>
+        <span class="text-xs" v-if="relativeTimeAgo !== formattedDateTime"><br>{{ relativeTimeAgo }}</span>
+      </div>
       <article v-html="marked(post.body)"/>
     </div>
   </div>
