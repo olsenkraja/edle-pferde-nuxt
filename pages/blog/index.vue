@@ -1,7 +1,7 @@
 <script setup>
-const {data: posts} = await useFetch('/api/posts')
+const {data} = await useFetch('/api/posts')
+const posts = data.value.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 const config = useRuntimeConfig()
-console.log(config)
 </script>
 
 <template>
